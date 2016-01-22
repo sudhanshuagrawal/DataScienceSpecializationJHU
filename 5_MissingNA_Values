@@ -1,0 +1,317 @@
+| Please choose a lesson, or type 0 to return to course menu.
+
+ 1: Basic Building Blocks      2: Workspace and Files     
+ 3: Sequences of Numbers       4: Vectors                 
+ 5: Missing Values             6: Subsetting Vectors      
+ 7: Matrices and Data Frames   8: Logic                   
+ 9: Functions                 10: lapply and sapply       
+11: vapply and tapply         12: Looking at Data         
+13: Simulation                14: Dates and Times         
+15: Base Graphics             
+
+Selection: 5
+
+  |                                                                             |   0%
+
+| Missing values play an important role in statistics and data analysis. Often,
+| missing values must not be ignored, but rather they should be carefully studied to
+| see if there's an underlying pattern or cause for their missingness.
+
+...
+
+  |====                                                                         |   5%
+
+| In R, NA is used to represent any value that is 'not available' or 'missing' (in the
+| statistical sense). In this lesson, we'll explore missing values further.
+
+...
+
+  |========                                                                     |  10%
+
+| Any operation involving NA generally yields NA as the result. To illustrate, let's
+| create a vector c(44, NA, 5, NA) and assign it to a variable x.
+
+> x<-c(44,NA,5,NA)
+
+| Excellent work!
+
+  |============                                                                 |  15%
+
+| Now, let's multiply x by 3.
+
+> x*3
+[1] 132  NA  15  NA
+
+| Excellent work!
+
+  |===============                                                              |  20%
+
+| Notice that the elements of the resulting vector that correspond with the NA values
+| in x are also NA.
+
+...
+
+  |===================                                                          |  25%
+
+| To make things a little more interesting, lets create a vector containing 1000 draws
+| from a standard normal distribution with y <- rnorm(1000).
+
+> y<rnorm(1000)
+   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [14] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [27] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [40] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [53] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [66] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [79] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+  [92] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [105] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [118] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [131] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [144] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [170] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [183] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [196] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [209] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [222] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [235] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [248] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [261] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [274] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [287] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [300] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [313] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [326] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [339] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [352] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [365] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [378] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [391] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [404] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [417] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [430] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [443] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [456] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [469] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [482] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [495] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [508] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [521] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [534] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [547] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [560] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [573] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [586] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [599] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [612] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [625] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [638] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [651] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [664] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [677] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [690] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [703] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [716] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [729] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [742] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [755] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [768] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [781] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [794] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [807] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [820] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [833] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [846] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [859] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [872] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [885] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [898] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [911] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [924] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [937] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [950] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [963] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [976] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [989] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+
+| Not quite, but you're learning! Try again. Or, type info() for more options.
+
+| The function rnorm() generates random numbers from a normal distribution. Type y <-
+| rnorm(1000).
+
+> y<-rnorm(1000)
+
+| You are quite good my friend!
+
+  |=======================                                                      |  30%
+
+| Next, let's create a vector containing 1000 NAs with z <- rep(NA, 1000).
+
+> z<-rep(NA,time=1000)
+
+| You're close...I can feel it! Try it again. Or, type info() for more options.
+
+| Type z <- rep(NA, 1000) to generate a vector of 1000 NAs.
+
+> z<-rep(NA,times=1000)
+
+| That's not the answer I was looking for, but try again. Or, type info() for more
+| options.
+
+| Type z <- rep(NA, 1000) to generate a vector of 1000 NAs.
+
+> z<-rep(NA,1000)
+
+| Excellent work!
+
+  |===========================                                                  |  35%
+
+| Finally, let's select 100 elements at random from these 2000 values (combining y and
+| z) such that we don't know how many NAs we'll wind up with or what positions they'll
+| occupy in our final vector -- my_data <- sample(c(y, z), 100).
+
+> my_data<-sample(c(y,z),100)
+
+| That's the answer I was looking for.
+
+  |===============================                                              |  40%
+
+| Let's first ask the question of where our NAs are located in our data. The is.na()
+| function tells us whether each element of a vector is NA. Call is.na() on my_data
+| and assign the result to my_na.
+
+> my_na<-is.na(my_data)
+
+| You are really on a roll!
+
+  |===================================                                          |  45%
+
+| Now, print my_na to see what you came up with.
+
+> my_na
+  [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE
+ [14]  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+ [27]  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [40] FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
+ [53] FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+ [66] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+ [79]  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE
+ [92] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE
+
+| That's correct!
+
+  |======================================                                       |  50%
+
+| Everywhere you see a TRUE, you know the corresponding element of my_data is NA.
+| Likewise, everywhere you see a FALSE, you know the corresponding element of my_data
+| is one of our random draws from the standard normal distribution.
+
+...
+
+  |==========================================                                   |  55%
+
+| In our previous discussion of logical operators, we introduced the `==` operator as
+| a method of testing for equality between two objects. So, you might think the
+| expression my_data == NA yields the same results as is.na(). Give it a try.
+
+> my_data==Na
+Error: object 'Na' not found
+> my_data==NA
+  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+ [28] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+ [55] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+ [82] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+
+| Excellent job!
+
+  |==============================================                               |  60%
+
+| The reason you got a vector of all NAs is that NA is not really a value, but just a
+| placeholder for a quantity that is not available. Therefore the logical expression
+| is incomplete and R has no choice but to return a vector of the same length as
+| my_data that contains all NAs.
+
+...
+
+  |==================================================                           |  65%
+
+| Don't worry if that's a little confusing. The key takeaway is to be cautious when
+| using logical expressions anytime NAs might creep in, since a single NA value can
+| derail the entire thing.
+
+...
+
+  |======================================================                       |  70%
+
+| So, back to the task at hand. Now that we have a vector, my_na, that has a TRUE for
+| every NA and FALSE for every numeric value, we can compute the total number of NAs
+| in our data.
+
+...
+
+  |==========================================================                   |  75%
+
+| The trick is to recognize that underneath the surface, R represents TRUE as the
+| number 1 and FALSE as the number 0. Therefore, if we take the sum of a bunch of
+| TRUEs and FALSEs, we get the total number of TRUEs.
+
+...
+
+  |==============================================================               |  80%
+
+| Let's give that a try here. Call the sum() function on my_na to count the total
+| number of TRUEs in my_na, and thus the total number of NAs in my_data. Don't assign
+| the result to a new variable.
+
+> sum(my_na)
+[1] 48
+
+| You are amazing!
+
+  |=================================================================            |  85%
+
+| Pretty cool, huh? Finally, let's take a look at the data to convince ourselves that
+| everything 'adds up'. Print my_data to the console.
+
+> my_data
+  [1]           NA           NA           NA  1.643802448           NA  2.477508846
+  [7]           NA  0.863193063  0.013354512 -0.015719929           NA           NA
+ [13] -0.620745543           NA  0.964974386           NA  0.910772690 -0.239954068
+ [19] -0.219583545  2.566273852 -0.512291721  0.261676231 -0.459299494 -1.270210483
+ [25]           NA           NA           NA  0.729163634           NA           NA
+ [31]           NA -0.099921343  1.482543111           NA           NA           NA
+ [37]           NA           NA           NA  1.022203814  0.729645611           NA
+ [43]           NA           NA -0.151632615 -0.199615875           NA           NA
+ [49] -0.667227442  0.338320096  0.174617250           NA -0.004044008           NA
+ [55]           NA -0.231834879           NA -1.202912769           NA  0.003781113
+ [61]           NA  0.081769301           NA  0.946352082           NA -0.725400871
+ [67] -2.013543108           NA  2.096518247           NA  1.467671889 -0.236129931
+ [73]  2.046986964  0.469601043           NA  0.364846361  0.536148561 -0.016118668
+ [79]           NA           NA  0.109749933           NA  1.931677624           NA
+ [85]           NA           NA  0.195706157 -0.665148041 -0.217412989  0.845737673
+ [91]           NA -0.616437810 -0.436281963           NA  0.044508660           NA
+ [97]  0.225277113           NA           NA -0.052144092
+
+| You are amazing!
+
+  |=====================================================================        |  90%
+
+| Now that we've got NAs down pat, let's look at a second type of missing value --
+| NaN, which stands for 'not a number'. To generate NaN, try dividing (using a forward
+| slash) 0 by 0 now.
+
+> 0/0
+[1] NaN
+
+| You got it right!
+
+  |=========================================================================    |  95%
+
+| Let's do one more, just for fun. In R, Inf stands for infinity. What happens if you
+| subtract Inf from Inf?
+
+> Inf-Inf
+[1] NaN
+
+| Excellent job!
