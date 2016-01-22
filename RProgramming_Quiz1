@@ -1,0 +1,45 @@
+## Setting a working Directory
+>setwd("E:/sudhanshu/DataScience/coursera/R")
+
+##Reading the CSV file hw1_data.csv into R
+>data<-read.csv("hw1_data.csv")
+
+##To display 2 top rows in the dataset
+>head(data,2)
+
+##To find the number of rows in the dataset
+>nrow(data)
+
+##To display the last 2 lines of the dataset
+>tail(data,2)
+
+##To find the value of Ozone column in the 47th row
+>data[[c(1,47)]]
+
+##To find the NA values in the ozone column ##To find how many rows have non NA values
+>x<-is.na(data[c(1)])
+>sum(x)
+
+##To get the first column in another dataset
+>ozone<-data[[c(1)]]
+##To get the NON NA values in this column
+>ozone_na<-ozone[!is.na(ozone)]
+##To find the mean of this set
+>mean(ozone_na)
+
+##To find the subset of data where Ozone>30 and Temp >90
+> datasub<-subset(data, Ozone>31 & Temp>90,select=Ozone:Temp)
+##To find the mean of the Solar.R column for this condition
+>mean(datasub$Solar.R)
+
+##To find the mean of the data where Month =6
+>datatempmean<-subset(data, Month==6,select=Temp:Month)
+>mean(datatempmean$Temp)
+
+##To find the max ozone month =5
+>datamaxozone<-subset(data,Month==5,select=Ozone:Temp)
+>max(datamaxozone$Ozone,na.rm=TRUE)
+
+
+
+
