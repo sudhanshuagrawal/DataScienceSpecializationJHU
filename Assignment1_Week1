@@ -42,6 +42,23 @@ complete <- function(directory, id = 1:332) {
 +     dat
 + }
 
+===============================================================
+
+> complete<-function(directory,id=1:332){
++   files<-list.files(directory,pattern="*.csv",full.names=TRUE)
++   datacomplete<-data.frame()
++   for(i in id){
++     readfilescc<-read.csv(files[i])
++     sumcc<-sum(complete.cases(readfilescc))
++     temp<-data.frame(i,sumcc)
++     datacomplete<-rbind(datacomplete,temp)
++   }
++   colnames(datacomplete)<-c("i","nobs")
++   datacomplete
++ }
+
+=========================================================
+
 
 corr <- function(directory, threshold = 0) {
 +     files_full <- list.files(directory, full.names = TRUE)
