@@ -1,0 +1,33 @@
+##There will be an object called 'iris' in your workspace. 
+##In this dataset, what is the mean of 'Sepal.Length' for the species virginica?
+
+>sepalen_virginica<-subset(iris,Species=="virginica",select=Sepal.Length)
+
+>sapply(sepalen_virginica,mean)
+
+
+##Continuing with the 'iris' dataset from the previous Question, what R code returns a vector of the means of 
+##the variables 'Sepal.Length', 'Sepal.Width', 'Petal.Length', and 'Petal.Width'?
+
+>apply(iris[, 1:4], 2, mean)
+
+##How can one calculate the average miles per gallon (mpg) by number of cylinders in the car (cyl)? Select all that apply.
+
+>tapply(mtcars$mpg, mtcars$cyl, mean)
+
+>with(mtcars, tapply(mpg, cyl, mean))
+
+>sapply(split(mtcars$mpg, mtcars$cyl), mean)
+
+##Continuing with the 'mtcars' dataset from the previous Question, 
+##what is the absolute difference between the average horsepower of 4-cylinder 
+##cars and the average horsepower of 8-cylinder cars?
+
+> hp4avg<-subset(mtcars,cyl==4,select=hp)
+> hp8avg<-subset(mtcars,cyl==8,select =hp)
+
+>hp4<-sapply(hp4avg,mean)
+> hp8<-sapply(hp8avg,mean)
+> hp4-hp8
+       hp 
+-126.5779 
